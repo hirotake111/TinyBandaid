@@ -1,9 +1,7 @@
-## Simple Round Robin loadbalancing
-
-### Example commands for development
+## 1. Simple Round Robin loadbalancing
 
 ```bash
-# First of all get you Docker (Desktop) up and running (I always forget about it)
+# First of all get your Docker (Desktop) up and running (as I always forget about it)
 # Spin up dev environment
 make up
 
