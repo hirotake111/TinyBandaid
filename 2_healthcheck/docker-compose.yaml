@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  lb:
+    build: 
+      dockerfile: "Dockerfile.dev"
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+    environment:
+      - BACKEND_SERVERS=http://web1,http://web2,http://web3,http://web4
+    depends_on:
+      - web1
+
+  web1:
+    container_name: web1
+    image: hirotake1111/go-tiny-web:latest
+    environment:
+      - SERVER_NAME=web1
+    
+  web2:
+    container_name: web2
+    image: hirotake1111/go-tiny-web:latest
+    environment:
+      - SERVER_NAME=web2
+
+  web3:
+    container_name: web3
+    image: hirotake1111/go-tiny-web:latest
+    environment:
+      - SERVER_NAME=web3
+
+  web4:
+    container_name: web4
+    image: hirotake1111/go-tiny-web:latest
+    environment:
+      - SERVER_NAME=web4
