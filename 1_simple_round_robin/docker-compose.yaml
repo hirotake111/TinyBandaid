@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   lb:
-    container_name: lb
     build: 
       dockerfile: "Dockerfile.dev"
     ports:

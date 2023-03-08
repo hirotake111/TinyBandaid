@@ -7,15 +7,15 @@ import (
 )
 
 type Backend struct {
-	Url          string                 // URL for server
+	Url          *url.URL               // Backend's URL
 	ReverseProxy *httputil.ReverseProxy // reverse proxy instance
 }
 
-// Returns a pointer for a new backend server
+// Returns a pointer to a new backend server
 func NewBackend(serverUrl string) *Backend {
 	url, err := url.Parse(serverUrl)
 	if err != nil {
 		panic(fmt.Sprintf("Cannot instantiate a server with URL %s", serverUrl))
 	}
-	return &Backend{Url: serverUrl, ReverseProxy: httputil.NewSingleHostReverseProxy(url)}
+	return &Backend{Url: url, ReverseProxy: httputil.NewSingleHostReverseProxy(url)}
 }

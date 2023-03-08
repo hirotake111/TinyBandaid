@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/hirotake111/go-toy-lb/config"
-	"github.com/hirotake111/go-toy-lb/internal/pool"
+	"workspace/tinybandaid/config"
+	"workspace/tinybandaid/internal/pool"
 )
 
 const CONFIG_FILE_NAME = "config.json"

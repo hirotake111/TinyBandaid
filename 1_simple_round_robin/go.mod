@@ -1,3 +1,3 @@
-module github.com/hirotake111/go-toy-lb
+module workspace/tinybandaid
 
 go 1.20

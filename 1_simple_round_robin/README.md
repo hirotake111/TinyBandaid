@@ -1,6 +1,4 @@
-### Environment variables
-
-- `BACKEND_SERVERS`: comma-separated URLs for backend servers
+## Simple Round Robin loadbalancing
 
 ### Example commands for development
 
@@ -9,7 +7,7 @@
 # Spin up dev environment
 make up
 
-# Make an HTTP request to the LB
+# Open another terminal and make an HTTP request to the LB
 curl http://localhost:3000
 
 # Stop & remove all Docker containers
