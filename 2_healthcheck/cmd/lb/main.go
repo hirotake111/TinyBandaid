@@ -6,6 +6,8 @@ import (
 	"net/http"
 
 	"workspace/tinybandaid/config"
+	"workspace/tinybandaid/internal/healthCheck"
+	"workspace/tinybandaid/internal/loadbalancing"
 	"workspace/tinybandaid/internal/pool"
 )
 
@@ -24,7 +26,9 @@ func main() {
 		panic(err)
 	}
 
-	p := pool.New(c.ServerUrls)
+	lb := &loadbalancing.RoundRobin{}
+	p := pool.New(c.ServerUrls, lb)
+	go healthCheck.TcpHealthCheck(p)
 	mux := http.NewServeMux()
 	mux.HandleFunc("/ping", Pong)
 	mux.HandleFunc("/", p.CreateHandler())
