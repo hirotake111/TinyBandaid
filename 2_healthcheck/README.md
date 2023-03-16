@@ -1,4 +1,4 @@
-## 1. Simple Round Robin loadbalancing
+## 1. Simple Round Robin loadbalancing (Heal check feature added)
 
 ```bash
 # First of all get your Docker (Desktop) up and running (as I always forget about it)
