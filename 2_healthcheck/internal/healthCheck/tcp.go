@@ -19,7 +19,10 @@ func TcpHealthCheck(p pool) {
 	for range ticker.C {
 		clonedBackends := p.GetClonedBackends()
 		for i, b := range clonedBackends {
-			p.UpdateBackendHealth(i, isBackendAlive(b.Url))
+			isAlive := isBackendAlive(b.Url)
+			if isAlive != b.IsAlive {
+				p.UpdateBackendHealth(i, isBackendAlive(b.Url))
+			}
 		}
 	}
 }
